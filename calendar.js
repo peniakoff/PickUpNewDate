@@ -13,16 +13,19 @@ var document,
         endOfMonth = [31, 28, 31, 30, 31, 30, 31, 31, 30, 31, 30, 31],
         lang = "",
         dayOfWeekName = [
-            ["Mo", "Tu", "We", "Th", "Fr", "Sa", "Su"],
-            ["Pn", "Wt", "Śr", "Cz", "Pt", "So", "Nd"]
+            ["Mon", "Tue", "Wed", "Thu", "Fri", "Sat", "Sun"],
+            ["Pn", "Wt", "Śr", "Cz", "Pt", "So", "Nd"],
+            ["Mo", "Di", "Mi", "Do", "Fr", "Sa", "So"]
         ],
         monthName = [
             ["January", "February", "March", "April", "May", "June", "July", "August", "September", "October", "November", "December"],
-            ["Styczeń", "Luty", "Marzec", "Kwiecień", "Maj", "Czerwiec", "Lipiec", "Sierpień", "Wrzesień", "Październik", "Listopad", "Grudzień"]
+            ["Styczeń", "Luty", "Marzec", "Kwiecień", "Maj", "Czerwiec", "Lipiec", "Sierpień", "Wrzesień", "Październik", "Listopad", "Grudzień"],
+            ["Januar", "Februar", "März", "April", "Mai", "Juni", "Juli", "August", "September", "Oktober", "November", "Dezember"]
         ],
         tableHeader = [
             ["previous month", "next month"],
-            ["poprzedni miesiąc", "następny miesiąc"]
+            ["poprzedni miesiąc", "następny miesiąc"],
+            ["Vormonat", "nächsten Monat"]
         ],
         table,
         numberOfWeeks;
@@ -30,6 +33,8 @@ var document,
         lang = 0;
     } else if (lang === "pl") {
         lang = 1;
+    } else if (lang === "de") {
+        lang = 2;
     }
     if (dayOfWeek === 0) {
         dayOfWeek = 7;
