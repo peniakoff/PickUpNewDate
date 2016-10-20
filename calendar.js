@@ -29,12 +29,19 @@ var document,
         ],
         table,
         numberOfWeeks;
-    if (lang === undefined || lang === "" || lang === "en") {
+    switch (lang) {
+    case "":
+    case "eng":
         lang = 0;
-    } else if (lang === "pl") {
+        break;
+    case "pl":
         lang = 1;
-    } else if (lang === "de") {
+        break;
+    case "de":
         lang = 2;
+        break;
+    default:
+        lang = 0;
     }
     if (dayOfWeek === 0) {
         dayOfWeek = 7;
