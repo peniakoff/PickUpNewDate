@@ -11,8 +11,6 @@ function pickUpNewDate(lang, area) {
         dayOfWeek = d.getDay(),
         dayOfMonth,
         endOfMonth = [31, 28, 31, 30, 31, 30, 31, 31, 30, 31, 30, 31],
-        lang,
-        area,
         dayOfWeekName = [
             ["Mon", "Tue", "Wed", "Thu", "Fri", "Sat", "Sun"],
             ["Pn", "Wt", "Śr", "Cz", "Pt", "So", "Nd"],
@@ -184,7 +182,7 @@ function pickUpNewDate(lang, area) {
         (drawCalendar(month, area));
     }
 
-    window.onkeyup = function (e) {
+    /* window.onkeyup = function (e) {
         var key;
         if (e.keyCode) {
             key = e.keyCode;
@@ -196,7 +194,7 @@ function pickUpNewDate(lang, area) {
         } else if (key === 39) {
             nextMonth();
         }
-    };
+    }; */
 
     funcArray = {
         prevMonth: prevMonth,
