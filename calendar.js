@@ -1,3 +1,7 @@
+/*
+* PickUpNewDate JS Calendar writed by Tomasz Miller (Peniakoff)
+*/
+
 var document,
     window,
     funcArray;
