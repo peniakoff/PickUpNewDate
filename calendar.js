@@ -1,8 +1,12 @@
+/*
+* PickUpNewDate JS Calendar writed by Tomasz Miller (Peniakoff)
+*/
+
 var document,
     window,
     funcArray;
 
-(function () {
+function pickUpNewDate(lang, area) {
     "use strict";
     var d = new Date(),
         day = d.getDate(),
@@ -11,7 +15,6 @@ var document,
         dayOfWeek = d.getDay(),
         dayOfMonth,
         endOfMonth = [31, 28, 31, 30, 31, 30, 31, 31, 30, 31, 30, 31],
-        lang = "",
         dayOfWeekName = [
             ["Mon", "Tue", "Wed", "Thu", "Fri", "Sat", "Sun"],
             ["Pn", "Wt", "Śr", "Cz", "Pt", "So", "Nd"],
@@ -30,6 +33,7 @@ var document,
         table,
         numberOfWeeks;
     switch (lang) {
+    case undefined:
     case "":
     case "eng":
         lang = 0;
@@ -116,13 +120,13 @@ var document,
         return table;
     }
 
-    function drawCalendar(c) {
+    function drawCalendar(c, ar) {
         var a = 0, // number of week
             b = 1; // number of day
         if (dayOfMonth[1].dayInWeek !== 1) {
             a = 1;
         }
-        document.getElementById("calendar").innerHTML = table;
+        document.getElementById(ar).innerHTML = table;
         for (b; b < endOfMonth[c] + 1; b += 1) {
             if (dayOfMonth[b].dayInWeek === 1) {
                 a += 1;
@@ -138,7 +142,7 @@ var document,
     dayOfMonth = (tableOfDays(day, dayOfWeek, month));
     numberOfWeeks = (nOw());
     table = (createCalendar(month));
-    (drawCalendar(month));
+    (drawCalendar(month, area));
 
     function prevMonth() {
         month = month - 1;
@@ -158,7 +162,7 @@ var document,
         dayOfMonth = (tableOfDays(endOfMonth[month], dayOfWeek, month));
         numberOfWeeks = (nOw());
         table = (createCalendar(month));
-        (drawCalendar(month));
+        (drawCalendar(month, area));
     }
 
     function nextMonth() {
@@ -179,10 +183,10 @@ var document,
         dayOfMonth = (tableOfDays(1, dayOfWeek, month));
         numberOfWeeks = (nOw());
         table = (createCalendar(month));
-        (drawCalendar(month));
+        (drawCalendar(month, area));
     }
 
-    window.onkeyup = function (e) {
+    /* window.onkeyup = function (e) {
         var key;
         if (e.keyCode) {
             key = e.keyCode;
@@ -194,10 +198,10 @@ var document,
         } else if (key === 39) {
             nextMonth();
         }
-    };
+    }; */
 
     funcArray = {
         prevMonth: prevMonth,
         nextMonth: nextMonth
     };
-}());
+}
